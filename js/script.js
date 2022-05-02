@@ -116,6 +116,9 @@ const objects = [
 // Milestone 1
 // Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni icona, in cui è presente il nome dell'icona e l'icona stessa.
 
+// Milestone 2
+// Ciascuna icona ha una proprietà "color": utilizzare questa proprietà per visualizzare le icone del colore corrispondente.
+
 const wrapperContainer = document.querySelector(".wrapper");
 console.log(wrapperContainer);
 
@@ -126,7 +129,7 @@ const usersArray = [];
 objects.forEach((element) => {
     wrapperContainer.innerHTML += 
     `
-        <div class="card-box">
+        <div class="card-box ${element.color}">
             <i class = "${element.family} ${element.prefix}${element.name}"></i>
             <h3>${element.name}</h3>
         </div>

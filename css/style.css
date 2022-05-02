@@ -21,3 +21,15 @@ body {
     align-items: center;
     /* background-color: aqua; */
 }
+
+.orange {
+    color: orange;
+}
+
+.green {
+    color: green;
+}
+
+.blue {
+    color: blue;
+}
