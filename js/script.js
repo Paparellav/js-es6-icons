@@ -149,12 +149,12 @@ objects.forEach((element) => {
 // :muso_unicorno: BONUS
 // Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
 
-const myBtn = document.querySelector("button");
-myBtn.addEventListener('click', function() {
+const userOption = document.getElementById("categories");
+userOption.addEventListener('click', function() {
     wrapperContainer.innerHTML = "";
-    const userOption = document.getElementById("categories").value;
     
-    if (userOption === "animals") {
+    
+    if (this.value === "animals") {
         animalsArray.forEach((element) => {
             console.log(element);
             const newDiv = document.createElement("div");
@@ -166,7 +166,7 @@ myBtn.addEventListener('click', function() {
             `;
             wrapperContainer.append(newDiv);
         });
-    } else if (userOption === "vegetables") {
+    } else if (this.value === "vegetables") {
         vegetablesArray.forEach((element) => {
             console.log(element);
             const newDiv = document.createElement("div");
@@ -178,7 +178,7 @@ myBtn.addEventListener('click', function() {
             `;
             wrapperContainer.append(newDiv);
         });
-    } else if (userOption === "users") {
+    } else if (this.value === "users") {
         usersArray.forEach((element) => {
             console.log(element);
             const newDiv = document.createElement("div");
