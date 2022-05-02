@@ -117,12 +117,20 @@ const objects = [
 // Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni icona, in cui è presente il nome dell'icona e l'icona stessa.
 
 const wrapperContainer = document.querySelector(".wrapper");
+console.log(wrapperContainer);
 
 const animalsArray = [];
 const vegetablesArray = [];
 const usersArray = [];
 
 objects.forEach((element) => {
+    wrapperContainer.innerHTML += 
+    `
+        <div class="card-box">
+            <i class = "${element.family} ${element.prefix}${element.name}"></i>
+            <h3>${element.name}</h3>
+        </div>
+    `;
     if (element.type === "animal") {
         animalsArray.push(element);
     } else if (element.type === "vegetable") {
@@ -132,4 +140,3 @@ objects.forEach((element) => {
     }
 });
 
-console.log(usersArray);
