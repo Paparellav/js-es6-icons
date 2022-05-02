@@ -121,37 +121,87 @@ const objects = [
 
 const wrapperContainer = document.querySelector(".wrapper");
 console.log(wrapperContainer);
-
 const animalsArray = [];
 const vegetablesArray = [];
 const usersArray = [];
 
 objects.forEach((element) => {
 
-    // const newDiv = document.createElement("div");
-    // newDiv.classList.add("card-box");
-    // newDiv.innerHTML +=
-    // `
-    //     <i class = "${element.family} ${element.prefix}${element.name}"></i>
-    //     <h3>${element.name}</h3>
-
-    // `;
-    // wrapperContainer.append(newDiv);
-    wrapperContainer.innerHTML += 
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("card-box");
+    newDiv.innerHTML +=
     `
-        <div class="card-box ${element.color}">
-            <i class = "${element.family} ${element.prefix}${element.name}"></i>
-            <h3>${element.name}</h3>
-        </div>
+        <i class = "${element.family} ${element.prefix}${element.name} ${element.color}"></i>
+        <h3>${element.name}</h3>
     `;
+    wrapperContainer.append(newDiv);
+
     if (element.type === "animal") {
         animalsArray.push(element);
     } else if (element.type === "vegetable") {
-        vegetablesArray.push(element)
+        vegetablesArray.push(element);
     } else {
-        usersArray.push(element);
+        usersArray.push(element)
     }
+    
 });
 
 // :muso_unicorno: BONUS
 // Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
+
+const myBtn = document.querySelector("button");
+myBtn.addEventListener('click', function() {
+    wrapperContainer.innerHTML = "";
+    const userOption = document.getElementById("categories").value;
+    
+    if (userOption === "animals") {
+        animalsArray.forEach((element) => {
+            console.log(element);
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("card-box");
+            newDiv.innerHTML +=
+            `
+                <i class = "${element.family} ${element.prefix}${element.name} ${element.color}"></i>
+                <h3>${element.name}</h3>
+            `;
+            wrapperContainer.append(newDiv);
+        });
+    } else if (userOption === "vegetables") {
+        vegetablesArray.forEach((element) => {
+            console.log(element);
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("card-box");
+            newDiv.innerHTML +=
+            `
+                <i class = "${element.family} ${element.prefix}${element.name} ${element.color}"></i>
+                <h3>${element.name}</h3>
+            `;
+            wrapperContainer.append(newDiv);
+        });
+    } else if (userOption === "users") {
+        usersArray.forEach((element) => {
+            console.log(element);
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("card-box");
+            newDiv.innerHTML +=
+            `
+                <i class = "${element.family} ${element.prefix}${element.name} ${element.color}"></i>
+                <h3>${element.name}</h3>
+            `;
+            wrapperContainer.append(newDiv);
+        });
+    } else {
+        objects.forEach((element) => {
+            console.log(element);
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("card-box");
+            newDiv.innerHTML +=
+            `
+                <i class = "${element.family} ${element.prefix}${element.name} ${element.color}"></i>
+                <h3>${element.name}</h3>
+            `;
+            wrapperContainer.append(newDiv);
+        });
+    }
+
+});

@@ -48,5 +48,5 @@ header {
 }
 
 .hidden {
-    display: none;
+    display: block;
 }
