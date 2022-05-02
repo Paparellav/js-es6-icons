@@ -127,6 +127,16 @@ const vegetablesArray = [];
 const usersArray = [];
 
 objects.forEach((element) => {
+
+    // const newDiv = document.createElement("div");
+    // newDiv.classList.add("card-box");
+    // newDiv.innerHTML +=
+    // `
+    //     <i class = "${element.family} ${element.prefix}${element.name}"></i>
+    //     <h3>${element.name}</h3>
+
+    // `;
+    // wrapperContainer.append(newDiv);
     wrapperContainer.innerHTML += 
     `
         <div class="card-box ${element.color}">
@@ -143,3 +153,5 @@ objects.forEach((element) => {
     }
 });
 
+// :muso_unicorno: BONUS
+// Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
