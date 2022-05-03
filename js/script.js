@@ -126,10 +126,9 @@ const vegetablesArray = [];
 const usersArray = [];
 
 objects.forEach((element) => {
-
     const newDiv = document.createElement("div");
     newDiv.classList.add("card-box");
-    newDiv.innerHTML +=
+    newDiv.innerHTML =
     `
         <i class = "${element.family} ${element.prefix}${element.name} ${element.color}"></i>
         <h3>${element.name}</h3>
@@ -142,66 +141,38 @@ objects.forEach((element) => {
         vegetablesArray.push(element);
     } else {
         usersArray.push(element)
-    }
-    
+    }  
 });
 
 // :muso_unicorno: BONUS
 // Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
 
 const userOption = document.getElementById("categories");
-userOption.addEventListener('click', function() {
-    wrapperContainer.innerHTML = "";
-    
-    
-    if (this.value === "animals") {
-        animalsArray.forEach((element) => {
-            console.log(element);
-            const newDiv = document.createElement("div");
-            newDiv.classList.add("card-box");
-            newDiv.innerHTML +=
-            `
-                <i class = "${element.family} ${element.prefix}${element.name} ${element.color}"></i>
-                <h3>${element.name}</h3>
-            `;
-            wrapperContainer.append(newDiv);
-        });
-    } else if (this.value === "vegetables") {
-        vegetablesArray.forEach((element) => {
-            console.log(element);
-            const newDiv = document.createElement("div");
-            newDiv.classList.add("card-box");
-            newDiv.innerHTML +=
-            `
-                <i class = "${element.family} ${element.prefix}${element.name} ${element.color}"></i>
-                <h3>${element.name}</h3>
-            `;
-            wrapperContainer.append(newDiv);
-        });
-    } else if (this.value === "users") {
-        usersArray.forEach((element) => {
-            console.log(element);
-            const newDiv = document.createElement("div");
-            newDiv.classList.add("card-box");
-            newDiv.innerHTML +=
-            `
-                <i class = "${element.family} ${element.prefix}${element.name} ${element.color}"></i>
-                <h3>${element.name}</h3>
-            `;
-            wrapperContainer.append(newDiv);
-        });
-    } else {
-        objects.forEach((element) => {
-            console.log(element);
-            const newDiv = document.createElement("div");
-            newDiv.classList.add("card-box");
-            newDiv.innerHTML +=
-            `
-                <i class = "${element.family} ${element.prefix}${element.name} ${element.color}"></i>
-                <h3>${element.name}</h3>
-            `;
-            wrapperContainer.append(newDiv);
-        });
-    }
+userOption.addEventListener('change', function() {
+    wrapperContainer.innerHTML = ""; 
 
+    if (this.value === "animals") {
+        generateDomElements (wrapperContainer, animalsArray)
+    } else if (this.value === "vegetables") {
+        generateDomElements (wrapperContainer, vegetablesArray)
+    } else if (this.value === "users") {
+        generateDomElements (wrapperContainer, usersArray)
+    } else {
+        generateDomElements (wrapperContainer, objects)
+    }
 });
+
+
+//FUNCTIONS
+function generateDomElements (container, array) {
+    array.forEach ((element) => {
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("card-box");
+        newDiv.innerHTML =
+         `
+            <i class = "${element.family} ${element.prefix}${element.name} ${element.color}"></i>
+            <h3>${element.name}</h3>
+        `;
+        container.append(newDiv);
+    });
+}
